@@ -16,6 +16,8 @@ def check_prof(check_text):
         print("Profanity Alert!!")
     elif "false" in output:
         print("This document has no curse words!")
+    else:
+        print("Could not scan the document properly")
        
     connection.close()
 
