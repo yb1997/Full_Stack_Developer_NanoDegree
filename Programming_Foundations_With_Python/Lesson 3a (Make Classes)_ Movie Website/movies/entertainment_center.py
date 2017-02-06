@@ -7,45 +7,120 @@ import ast  # Abstract Syntax Tree
 import fresh_tomatoes
 
 def get_movie_info( id ):
-    connection = urllib("http://ww.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
-    output = connection.read()
-    values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
+    connection = urllib.urlopen("http://www.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
+    values = connection.read()
+#    values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
     return values
 
-    
-toy_story = media.Movie( "Toy Story",
-                         "A story of a boy",
-                         "https://goo.gl/RoywlF",
-                         "https://youtu.be/KYz2wyBy3kc")
+# Passing Id the movie to the funtion which return it's details
 
-avatar = media.Movie( "Avatar",
-                      "A marine on an alien planet",
-                      "https://goo.gl/YC21CA",
-                      "https://youtu.be/d1_JBMrrYw8")
+values = get_movie_info("tt0435761")
+toy_story = media.Movie( values.get('Title'),
+                         values.get('Plot'),
+                         values.get('Poster'),
+                         "https://youtu.be/KYz2wyBy3kc",
+                         values.get('imdbRating'),
+                         values.get('Year') )
 
-three_idiots = media.Movie( "3 Idiots",
-                            "This movie is Based on Chetan Bhagat's novel, Five Point Someone (though only a miniscule part has been adapted from the book; the rest is all original), here's a story of three friends studying in an engineering college Rancho (Aamir Khan), Farhan (R Madhavan) and Raju (Sharman Joshi).",
-                            "https://goo.gl/hPvHWK",
-                            "https://youtu.be/XQvcZWCacKE")
+values = get_movie_info("tt0499549")
+avatar = media.Movie(values.get('Title'), values.get('Plot'), values.get('Poster'),
+                 "https://goo.gl/YC21CA",
+                  values.get('imdbRating'), values.get('Year') )    
 
-internship = media.Movie( "The Internship ",
-                          "Two salesmen whose careers have been torpedoed by the digital age find their way into a coveted internship at Google, where they must compete with a group of young, tech-savvy geniuses for a shot at employment.",
-                          "https://goo.gl/5Ex35x",
-                          "https://youtu.be/NyfSMnMBGiM")
 
-algorithm = media.Movie( " Algorithm: The Hacker Movie ",
-                         "The new film Algorithm tracks the travails of Will, who is a freelance computer hacker who breaks into a top-secret government contractor and downloads all their recently developed programs. You can see the full movie below",
-                         "https://goo.gl/sEJAIT",
-                         "https://youtu.be/tyTUVovCp5s")
-SOCIAL_NETWORK = media.Movie("Social Network",
-                             "https://upload.wikimedia.org/wikipedia/en/",
-                             "https://www.cinematerial.com/media/posters/md/rs/rs1m0mdj.jpg?v=1456719991",
-                             "https://www.youtube.com/watch?v=lB95KLmpLR4")
+values = get_movie_info("tt0295701")
+xxx = media.Movie( values.get('Title'),
+                   values.get('Plot'),
+                   values.get('Poster'),
+                   "https://youtu.be/Spx-Mx3xhYY",
+                   values.get('imdbRating'),
+                   values.get('Year')
+                  )    
 
-movies = [avatar,toy_story, three_idiots,internship, algorithm,SOCIAL_NETWORK]
+
+values = get_movie_info("tt1187043")
+three_idiots = media.Movie( values.get('Title'),
+                            values.get('Plot'),
+                            values.get('Poster'),
+                            "https://youtu.be/XQvcZWCacKE",
+                            values.get('imdbRating'),
+                            values.get('Year')
+                          )    
+
+values = get_movie_info("tt3405236")
+raees = media.Movie(values.get('Title'),
+                    values.get('Plot'),
+                    values.get('Poster'),
+                    "http://www.imdb.com/title/tt3405236/videoplayer/vi994031129?ref_=tt_ov_vi",
+                    values.get('imdbRating'),
+                    values.get('Year')
+                    )    
+
+values = get_movie_info("tt1293847")
+xxx_return = media.Movie(values.get('Title'),
+                         values.get('Plot'),
+                         values.get('Poster'),
+                         "https://youtu.be/MQEFmHsseaU",
+                         values.get('imdbRating'),
+                         values.get('Year') )    
+
+values = get_movie_info("tt4217392")
+kung_fu_yoga = media.Movie(values.get('Title'),
+                           values.get('Plot'),
+                           values.get('Poster'),
+                           "https://youtu.be/5KcwjfPdFC0",
+                           values.get('imdbRating'),
+                           values.get('Year') )    
+
+values = get_movie_info("tt5460276")
+kaabil = media.Movie(values.get('Title'),
+                     values.get('Plot'),
+                     values.get('Poster'),
+                     "https://youtu.be/nubDFeiUAsI",
+                     values.get('imdbRating'),
+                     values.get('Year')
+                     )    
+
+
+values = get_movie_info("tt2234155")
+internship = media.Movie(values.get('Title'),
+                         values.get('Plot'),
+                         values.get('Poster'),
+                         "https://youtu.be/NyfSMnMBGiM",
+                         values.get('imdbRating'),
+                         values.get('Year')
+                         )    
+
+values = get_movie_info("tt3293462")
+algorithm = media.Movie(values.get('Title'),
+                        values.get('Plot'),
+                        values.get('Poster'),
+                        "https://youtu.be/tyTUVovCp5s",
+                        values.get('imdbRating'),
+                        values.get('Year') )    
+
+values = get_movie_info("tt5074352")
+dangal = media.Movie(values.get('Title'),
+                     values.get('Plot'),
+                     values.get('Poster'),
+                     "https://youtu.be/x_7YlGv9u1g",
+                     values.get('imdbRating'),
+                     values.get('Year') )    
+
+values = get_movie_info("tt1285016")
+social_network = media.Movie(values.get('Title'),
+                             values.get('Plot'),
+                             values.get('Poster'),
+                             "https://www.youtube.com/watch?v=lB95KLmpLR4",
+                             values.get('imdbRating'),
+                             values.get('Year')
+                             )    
+
+movies = [avatar,toy_story, xxx, xxx_return, dangal, kaabil, three_idiots, kung_fu_yoga, internship, raees, algorithm,SOCIAL_NETWORK]
 fresh_tomatoes.open_movies_page( movies )
 
 #print(media.Movie.VALID_RATINGS)
 #print(media.Movie.__doc__)
 #print(media.Movie.__name__)
 #print(media.Movie.__module__)
+
