@@ -8,7 +8,7 @@ import fresh_tomatoes
 
 def get_movie_info( id ):
     connection = urllib.urlopen("http://www.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
-    out = connection.read()
+    output = connection.read()
     values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
     return values
 
@@ -126,4 +126,3 @@ fresh_tomatoes.open_movies_page( movies )
 #print(media.Movie.__doc__)
 #print(media.Movie.__name__)
 #print(media.Movie.__module__)
-
