@@ -8,8 +8,8 @@ import fresh_tomatoes
 
 def get_movie_info( id ):
     connection = urllib.urlopen("http://www.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
-    values = connection.read()
-#    values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
+    out = connection.read()
+    values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
     return values
 
 # Passing Id the movie to the funtion which return it's details
@@ -23,9 +23,12 @@ toy_story = media.Movie( values.get('Title'),
                          values.get('Year') )
 
 values = get_movie_info("tt0499549")
-avatar = media.Movie(values.get('Title'), values.get('Plot'), values.get('Poster'),
-                 "https://goo.gl/YC21CA",
-                  values.get('imdbRating'), values.get('Year') )    
+avatar = media.Movie(values.get('Title'),
+                     values.get('Plot'),
+                     values.get('Poster'),
+                     "https://youtu.be/5PSNL1qE6VY",
+                     values.get('imdbRating'),
+                     values.get('Year') )    
 
 
 values = get_movie_info("tt0295701")
