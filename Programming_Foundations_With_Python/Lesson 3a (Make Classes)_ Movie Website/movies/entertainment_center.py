@@ -3,8 +3,16 @@ list of movies that feed into fresh_tomatoes.py file
 """
 import media   #I want to use the contents of previous file media.py
 import urllib
+import ast  # Abstract Syntax Tree
 import fresh_tomatoes
 
+def get_movie_info( id ):
+    connection = urllib("http://ww.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
+    output = connection.read()
+    values = ast.literal_eval(output) # pass string used for safely evaluating strings containing Python values
+    return values
+
+    
 toy_story = media.Movie( "Toy Story",
                          "A story of a boy",
                          "https://goo.gl/RoywlF",
@@ -32,14 +40,12 @@ algorithm = media.Movie( " Algorithm: The Hacker Movie ",
 SOCIAL_NETWORK = media.Movie("Social Network",
                              "https://upload.wikimedia.org/wikipedia/en/",
                              "https://www.cinematerial.com/media/posters/md/rs/rs1m0mdj.jpg?v=1456719991",
-                             
                              "https://www.youtube.com/watch?v=lB95KLmpLR4")
 
-movies = [avatar,toy_story, three_idiots,internship, algorithm,SOCIAL_NETWORK ]
+movies = [avatar,toy_story, three_idiots,internship, algorithm,SOCIAL_NETWORK]
 fresh_tomatoes.open_movies_page( movies )
 
-print(media.Movie.VALID_RATINGS)
-print(media.Movie.__doc__)
-print(media.Movie.__name__)
-print(media.Movie.__module__)
-
+#print(media.Movie.VALID_RATINGS)
+#print(media.Movie.__doc__)
+#print(media.Movie.__name__)
+#print(media.Movie.__module__)
