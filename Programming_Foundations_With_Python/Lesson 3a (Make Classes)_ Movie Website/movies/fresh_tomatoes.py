@@ -9,16 +9,30 @@ main_page_head = '''
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Movie With Karan </title>
-
+    <title>Fresh Tomatoes!</title>
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet"> 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
         body {
-            padding-top: 100px;
+             padding-top: 80px;
+             background-image: url('http://www.acervodocastanha.com.br/wp-content/uploads/2016/10/cinema.jpg');
+             background-repeat: no-repeat;
+             background-size: 100% 100%; 
+            
+        }
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+            color: #ffffff;
+        }
+        h2 {
+            background-color: #e6e6e6;
+            border-radius: 25px;
+            font-family: 'Cinzel Decorative', cursive;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -38,10 +52,9 @@ main_page_head = '''
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
-            padding-bottom: 20px;
         }
         .movie-tile:hover {
-            background-color: #EEE;
+            background-color: #999999;
             cursor: pointer;
         }
         .scale-media {
@@ -55,28 +68,7 @@ main_page_head = '''
             width: 100%;
             left: 0;
             top: 0;
-            background-color: black;
-        }
-                /* area below the navbar holding the bootstrap well and criterion info */
-        #legend {
-            margin-top: 10px;
-            font-weight:bold;
-            padding-left: 20px;
-            font-size: 40px;
-        }
-        /* area below the bootstrap well */
-	#instruct {
-            padding-left: 20px;
-            font-style: italic;
-	}
-        /* year and title colors */
-        h2, h4 {
-            color: #084B8A;
-        }
-        /* makes sure the navbar links float to the right  and stack when the browser is minimized */
-        ul.nav.navbar-nav {
-            float: right;
-            padding-right: 20px;
+            background-color: white;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -99,8 +91,8 @@ main_page_head = '''
         });
         // Animate in the movies when the page loads
         $(document).ready(function () {
-          $('.movie-tile').hide().first().show("slow", function showNext() {
-            $(this).next("div").show("slow", showNext);
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
           });
         });
     </script>
@@ -123,13 +115,12 @@ main_page_content = '''
         </div>
       </div>
     </div>
-
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Movie Trailers With Karan</a>
+            <h1><a href="#">Fresh Tomatoes Movie Trailers</a></h1>
           </div>
         </div>
       </div>
@@ -146,7 +137,7 @@ main_page_content = '''
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
+    <h2><font color="black">{movie_title}<br>{makeYear}<br>IMDb:{rate}</font></h2>
 </div>
 '''
 
@@ -167,7 +158,9 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            makeYear = movie.year,
+            rate = movie.rating
         )
     return content
 
