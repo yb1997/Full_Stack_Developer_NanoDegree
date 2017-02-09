@@ -18,7 +18,7 @@ class Movie():
       self.storyline = movie_storyline             
       self.poster_image_url = poster_image
       self.trailer_youtube_url = trailer_youtube
-      self.ratings = rating
+      self.rating = rating
       self.year = release_year
 
       #Instace Methods
