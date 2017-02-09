@@ -20,18 +20,18 @@ main_page_head = '''
     <style type="text/css" media="screen">
         body {
              padding-top: 80px;
-             background-image: url('http://www.acervodocastanha.com.br/wp-content/uploads/2016/10/cinema.jpg');
-             background-repeat: no-repeat;
+             background-image: url('http://bgfons.com/upload/light_texture2264.jpg');
+             background-repeat: repeat-y;
              background-size: 100% 100%; 
             
         }
         h1 {
-            font-family: 'Permanent Marker', cursive;
-            color: #ffffff;
+            font-family: 'Sans-serif', cursive;
+            color: #d6feff;
         }
         h2 {
-            background-color: #e6e6e6;
-            border-radius: 25px;
+            background-color: #6e6893;
+            border-radius: 20px;
             font-family: 'Cinzel Decorative', cursive;
         }
         #trailer .modal-dialog {
@@ -54,7 +54,7 @@ main_page_head = '''
             padding-top: 20px;
         }
         .movie-tile:hover {
-            background-color: #999999;
+            background-color: #141414;
             cursor: pointer;
         }
         .scale-media {
@@ -160,7 +160,7 @@ def create_movie_tiles_content(movies):
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
             makeYear = movie.year,
-            rate = movie.rating
+            rating = movie.rating
         )
     return content
 
