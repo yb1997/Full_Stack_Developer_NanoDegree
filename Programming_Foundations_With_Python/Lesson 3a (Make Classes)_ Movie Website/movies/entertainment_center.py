@@ -1,6 +1,3 @@
-"""
-list of movies that feed into fresh_tomatoes.py file
-"""
 import media   #I want to use the contents of previous file media.py
 import urllib
 import ast  
