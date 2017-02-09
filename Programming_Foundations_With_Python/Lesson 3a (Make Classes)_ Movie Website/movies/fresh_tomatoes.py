@@ -137,7 +137,7 @@ main_page_content = '''
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
-    <h2><font color="black">{movie_title}<br>{makeYear}<br>IMDb:{rate}</font></h2>
+    <h2><font color="black">{movie_title}<br>{makeYear}<br>IMDb:{rating}</font></h2>
 </div>
 '''
 
