@@ -1,10 +1,10 @@
-import media   #I want to use the contents of previous file media.py
+import media   #I want to use the contents of previous file media file
 import urllib
 import ast  
 import fresh_tomatoes
 
 def get_movie_info( id ):
-    connection = urllib.urlopen("http://www.omdbapi.com/?i=" + id +"&plot=short&r=json")  #Open the url
+    connection = urllib.urlopen("http://www.omdbapi.com/?i=" + id +"&plot=short&r=json")
     output = connection.read()    
     values = ast.literal_eval(output)
     return values
